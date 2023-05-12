@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex 布局</title>
+    <style> 
+        body {
+              margin: 0;
+              height: 100vh;
+              background-color: #eee;
+         }
+         /* {
+            border:1px solid blank;
+         } */
+         .yingYing {
+              box-shadow: rgb(0 0 0 / 20%)  0px 2px 1px -1px,
+                rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 
+         }
+         .flex {
+          display:flex;
+         } 
+         .baiSe{
+              background-color: white;
+         } 
+         .flex1 {
+            flex: 1;
+         } 
+         .column {
+              flex-direction: column;
+         } 
+         .mg8{
+          margin:8px
+         }
+         .mgr8{
+          margin-right:8px
+         }
+         .mgt8{
+          margin-top:8px
+         }
+         .daoHang {
+          /*内边框 */
+          padding: 10px 20px;
+          /*底部边框 */
+          border-bottom: 1px solid rgb(190 190 190);
+          font-size: 13px;
+          color: #666;
+         }
+         /*当屏幕宽度小于 600px时要改变的CSS */
+         @media (max-width: 600px) {
+          .ceBian {
+            display: none;
+          }
+          /*内容栏和数据栏flex方向改为竖向*/
+          .neiRong {
+            flex-direction: column;
+          }
+          .shujuQu {
+            flex-direction: column;
+          }
+          /*右区加左边外距*/
+          .youQu {
+            margin-left: 8px;
+          }
+          /*数据块外边距改为自动宽高*/
+          .shuJu {
+            margin: 0 0 8px;
+            flex: auto;
+          }   
+         }
+
+
+    </style>
+</head>
+<body class="flex"> 
+    <!-- 侧边栏 -->
+      <div style="width: 200px; z-index: 3" class="ceBian baiSe yingYing">
+        <!-- 头像 -->
+          <div 
+             style="
+                padding: 10px;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 1px solid #999;
+                " 
+                class="flex">
+            <img src="timg.jpg" alt="timg" width="40px" height="40px">
+            <div style="margin-left: 10px;">binbinpanpan</div>
+          </div>
+
+        <!-- 导航栏 -->
+          <div class="flex1">
+            <div class="daoHang">导航</div>
+            <div class="daoHang">导航</div>
+            <div class="daoHang">导航</div>
+            <div class="daoHang">导航</div>
+            <div class="daoHang">导航</div>
+          </div>
+
+      </div> 
+    <!-- 主区域 -->
+    <div class="flex1 flex column ">
+      <!-- 页头区 -->
+      <div style="height: 60px; z-index: 2;" class="baiSe yingYing"></div> 
+      <!-- 内容区 -->
+      <div style="overflow: auto;" class="neiRong flex1 flex">
+          <!-- 左区 -->
+          <div style="flex: 3" class="column mg8">
+              <!-- 数据区 -->
+              <div class="shujuQu flex">
+                <!-- 数据块 -->
+                <div style="height: 100px;" class="flex1 baiSe yingYing mgr8 "></div>
+                <div style="height: 100px;" class="flex1 baiSe yingYing mgr8 "></div>
+                <div style="height: 100px;" class="flex1 baiSe yingYing mgr8 "></div>
+                <div style="height: 100px;" class="flex1 baiSe yingYing "></div>            
+              </div>
+              <!-- 列表区 --> 
+              <div class="flex column">
+                <!-- 列表项 -->
+                <div style="height: 160px;" class="baiSe yingYing mgt8 "></div>
+                <div style="height: 160px;" class="baiSe yingYing mgt8 "></div>
+                <div style="height: 160px;" class="baiSe yingYing mgt8 ">
+                  <button id= "dzs" onclick="dianZan()">0</button>
+                   <script>
+                      function dianZan(){
+                        let dianZanShuBiaoQian = window.document.getElementById('dzs');
+                        let dianZanShu = parseInt(dianZanShuBiaoQian.innerText);
+                        let xinShuZi = dianZanShu +1;
+                        dianZanShuBiaoQian.innerText = xinShuZi;
+                        }  
+                    </script>
+                </div>
+                <div style="height: 160px;" class="baiSe yingYing mgt8 "></div>
+                <div style="height: 160px;" class="baiSe yingYing mgt8 "></div>
+                <div style="height: 160px;" class="baiSe yingYing mgt8 "></div>
+              </div>
+          </div>
+          <!-- 右区 -->
+          <div style="flex: 1" class="youQu flex column mgr8 mgt8">
+              <!-- 提示去 -->
+              <div style="height:150px" class="baiSe yingYing"></div>
+              <!-- 消息区 -->
+              <div style="height: 300px" class="baiSe yingYing mgt8"></div>
+          </div> 
+        
+              
+
+
+  
+</body>
+</html>
